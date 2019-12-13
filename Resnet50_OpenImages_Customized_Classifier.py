@@ -38,19 +38,10 @@ model = models.resnet18(pretrained=True)
 for param in model.parameters():
     param.requires_grad = False
 
-# Create new classifier for model using torch.nn as nn library
-# classifier_input = model.classifier.in_features
-# num_labels = 5
-# classifier = nn.Sequential(nn.Linear(classifier_input, 1024),
-#                            nn.ReLU(),
-#                            nn.Linear(1024, 512),
-#                            nn.ReLU(),
-#                            nn.Linear(512, num_labels),
-#                            nn.LogSoftmax(dim=1))
 
-
+#define our classifier
 fc_input = model.fc.in_features
-num_labels = 5
+num_labels = 5 # number of classes
 classifier = nn.Sequential(nn.Linear(fc_input, 1024),
                            nn.ReLU(),
                            nn.Linear(1024, 512),
