@@ -25,8 +25,8 @@ transformations = transforms.Compose([
 
 # Load in each dataset and apply transformations using
 # the torchvision.datasets as datasets library
-train_set = datasets.ImageFolder("/home/maziar/WA/Open_Image/Download_Desired_groups/OIDv4_ToolKit/OID/Dataset_nl/train", transform = transformations)
-val_set = datasets.ImageFolder("/home/maziar/WA/Open_Image/Download_Desired_groups/OIDv4_ToolKit/OID/Dataset_nl/validation", transform = transformations)
+train_set = datasets.ImageFolder("path to your training data", transform = transformations)
+val_set = datasets.ImageFolder("path to your validation data", transform = transformations)
 
 # Put into a Dataloader using torch library
 train_loader = torch.utils.data.DataLoader(train_set, batch_size=64, shuffle=True)
